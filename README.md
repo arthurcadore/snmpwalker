@@ -1,1 +1,9 @@
 # snmpdump-appliance
+
+```YAML
+SNMP_VERSION=2c
+MIBS=ALL
+COMMUNITY=intelbras123
+HOST=10.100.73.249
+VENDORID=SNMPv2-SMI::enterprises.26138
+```

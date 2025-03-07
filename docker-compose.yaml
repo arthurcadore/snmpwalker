@@ -4,13 +4,9 @@ services:
     build: 
       context: .
       dockerfile: ./docker/Dockerfile
-    container_name: snmpwalker
-    environment:
-      SNMP_VERSION: "2c"
-      MIBS: "ALL"
-      COMMUNITY: "intelbras123"
-      HOST: "10.100.73.249"
-      OID: "SNMPv2-SMI::enterprises.26138"
+    container_name: snmpwalker  
+    env_file:
+      - ./env/.env_example
     volumes:
       - ./out:/out
       - ./libs:/usr/share/snmp/mibs
