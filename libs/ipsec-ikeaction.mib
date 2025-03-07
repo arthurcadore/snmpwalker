@@ -33,7 +33,7 @@ IMPORTS
 --
 
 ipiaMIB MODULE-IDENTITY
-    LAST-UPDATED "20060905'"    -- 05 September 2006
+    LAST-UPDATED "200404211200Z"    -- 05 September 2006
     ORGANIZATION "IETF IP Security Policy Working Group"
     CONTACT-INFO "Michael Baer
                   P.O. Box 72682
@@ -73,7 +73,7 @@ ipiaMIB MODULE-IDENTITY
 
 -- Revision History
 
-    REVISION     "20060905'"    -- 05 September 2006
+    REVISION     "200404211200Z"    -- 05 September 2006
     DESCRIPTION  "Initial version, published as RFC YYYY."
     -- RFC-editor assigns YYYY
 
