@@ -10,8 +10,10 @@ def wait_for_stable_file(input_file, timeout=5):
         if current_size == last_size:
             break
         last_size = current_size
-        print(f"Monitorando '{input_file}'...")
         time.sleep(timeout)
+
+def format_value(value):
+    return '\n'.join([value[i:i+20] for i in range(0, len(value), 20)]) if len(value) > 20 else value
 
 def convert_txt_to_csv():
     input_file = os.getenv('INPUT_FILE')
@@ -19,7 +21,7 @@ def convert_txt_to_csv():
         print("Erro: Variável de ambiente INPUT_FILE não definida.")
         return
     
-    print(f"Iniciando monitoramento do arquivo...")
+    print(f"Monitorando {input_file} para alterações...")
     wait_for_stable_file(input_file)
     
     output_file = f"{os.path.splitext(input_file)[0]}.csv"
@@ -34,6 +36,10 @@ def convert_txt_to_csv():
             match = pattern.match(line.strip())
             if match:
                 oid, mib, var_type, value = match.groups()
+                oid = format_value(oid)
+                mib = format_value(mib)
+                var_type = format_value(var_type)
+                value = format_value(value)
                 csv_writer.writerow([oid, mib, var_type, value])
     
     print(f"Conversão concluída. Arquivo salvo como {output_file}")
