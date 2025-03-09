@@ -10,3 +10,12 @@ services:
     volumes:
       - ./out:/out
       - ./libs:/usr/share/snmp/mibs
+  formatter: 
+    image: python:alpine3.15
+    container_name: formatter
+    volumes:
+      - ./out:/out
+      - ./scripts:/scripts
+    environment:
+      - INPUT_FILE=/out/snmpwalk.txt
+    command: sh -c "python3 /scripts/formatter.py"
