@@ -13,7 +13,7 @@ def wait_for_stable_file(input_file, timeout=5):
         time.sleep(timeout)
 
 def format_value(value):
-    return '\n'.join([value[i:i+20] for i in range(0, len(value), 20)]) if len(value) > 20 else value
+    return '\n'.join([value[i:i+32] for i in range(0, len(value), 32)]) if len(value) > 32 else value
 
 def convert_txt_to_csv():
     input_file = os.getenv('INPUT_FILE')
