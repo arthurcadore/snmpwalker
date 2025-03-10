@@ -5,8 +5,13 @@ services:
       context: .
       dockerfile: ./docker/Dockerfile
     container_name: snmpwalker  
-    env_file:
-      - ./env/.env_example
+    environment:
+      - SNMP_VERSION=2c
+      - MIBS=ALL
+      - COMMUNITY=intelbras123
+      - HOST=10.100.73.249
+      - VENDORID=SNMPv2-SMI::enterprises.26138
+      - OUTPUT_FILE=/out/snmpwalk-10.100.73.249.txt
     volumes:
       - ./out:/out
       - ./libs:/usr/share/snmp/mibs
@@ -17,5 +22,5 @@ services:
       - ./out:/out
       - ./scripts:/scripts
     environment:
-      - INPUT_FILE=/out/snmpwalk.txt
+      - INPUT_FILE=/out/snmpwalk-10.100.73.249.txt
     command: sh -c "python3 /scripts/formatter.py"
