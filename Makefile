@@ -15,6 +15,9 @@ clean: stop
 	docker images -q | xargs -r docker rmi -f
 	docker volume ls -q | xargs -r docker volume rm
 
+formatter:
+	docker compose run --rm formatter
+
 netdump: build
 	@NETWORK=10.100.73; \
 	OUTPUT_DIR=$(PWD)/out; \

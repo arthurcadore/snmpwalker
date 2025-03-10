@@ -1,29 +1,11 @@
 import csv
 import re
 import os
-import time
-
-def wait_for_stable_file(input_file, timeout=5):
-    last_size = -1
-    while True:
-        current_size = os.path.getsize(input_file)
-        if current_size == last_size:
-            break
-        last_size = current_size
-        time.sleep(timeout)
 
 def format_value(value):
     return '\n'.join([value[i:i+32] for i in range(0, len(value), 32)]) if len(value) > 32 else value
 
-def convert_txt_to_csv():
-    input_file = os.getenv('INPUT_FILE')
-    if not input_file:
-        print("Erro: Variável de ambiente INPUT_FILE não definida.")
-        return
-    
-    print(f"Monitorando {input_file} para alterações...")
-    wait_for_stable_file(input_file)
-    
+def convert_txt_to_csv(input_file):
     output_file = f"{os.path.splitext(input_file)[0]}.csv"
     
     with open(input_file, 'r', encoding='utf-8') as infile, open(output_file, 'w', newline='', encoding='utf-8') as outfile:
@@ -44,5 +26,24 @@ def convert_txt_to_csv():
     
     print(f"Conversão concluída. Arquivo salvo como {output_file}")
 
+def process_folder():
+    input_folder = os.getenv('INPUT_FOLDER')
+    if not input_folder:
+        print("Erro: Variável de ambiente INPUT_FOLDER não definida.")
+        return
+    
+    if not os.path.isdir(input_folder):
+        print(f"Erro: O diretório {input_folder} não existe.")
+        return
+    
+    txt_files = [f for f in os.listdir(input_folder) if f.endswith(".txt")]
+    
+    if not txt_files:
+        print("Nenhum arquivo .txt encontrado no diretório.")
+        return
+    
+    for txt_file in txt_files:
+        convert_txt_to_csv(os.path.join(input_folder, txt_file))
+
 # Executa o processo
-convert_txt_to_csv()
+process_folder()

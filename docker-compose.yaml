@@ -22,5 +22,5 @@ services:
       - ./out:/out
       - ./scripts:/scripts
     environment:
-      - INPUT_FILE=/out/snmpwalk-10.100.73.249.txt
+      - INPUT_FOLDER=/out
     command: sh -c "python3 /scripts/formatter.py"
