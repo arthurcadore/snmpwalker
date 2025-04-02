@@ -1,14 +1,15 @@
 -- ==================================================================
 -- Intelbras Series MIB File
--- Copyright (c) Intelbras S.A. Industria de Telecomunicacao Eletronica Brasileria. All rights reserved.
+-- Copyright (c) 2023 Intelbras S.A. All rights reserved.
 -- Description: INTELBRAS Product ID MIB
 -- Reference:
--- Version: V1.00
+-- Version: V1.01
 -- History:
 -- V1.00 Initial version 2023-09-07
-
+-- V1.01 2024-05-13 by zhangyi
+--         Add OID 54 under lansw by zhangyi
 -- ==================================================================
-IB-PRODUCT-MIB DEFINITIONS ::= BEGIN
+INTELBRAS-PRODUCT-MIB DEFINITIONS ::= BEGIN
 IMPORTS
     enterprises
         FROM RFC1155-SMI;
@@ -63,6 +64,16 @@ ib-S2352G-PB                    OBJECT IDENTIFIER ::= { lansw 41 }
 ib-S3352G-PA                    OBJECT IDENTIFIER ::= { lansw 42 }
 ib-S2328G-PA                    OBJECT IDENTIFIER ::= { lansw 43 }
 ib-S3352G-PB                    OBJECT IDENTIFIER ::= { lansw 44 }
+ib-SDC-5850-2S-32H              OBJECT IDENTIFIER ::= { lansw 45 }
+ib-SC5523-24M10U-4HE            OBJECT IDENTIFIER ::= { lansw 46 }
+ib-SC3590-28G-4SC-8XE           OBJECT IDENTIFIER ::= { lansw 47 }
+ib-SC3590-28S-4SC-8XE           OBJECT IDENTIFIER ::= { lansw 48 }
+ib-SC3590-48G-4XE               OBJECT IDENTIFIER ::= { lansw 49 }
+ib-SC3590-48S-4XE               OBJECT IDENTIFIER ::= { lansw 50 }
+ib-SC3590-16GU-8M10U-4YE        OBJECT IDENTIFIER ::= { lansw 51 }
+ib-SC3590-32GU-16M10U-4YE       OBJECT IDENTIFIER ::= { lansw 52 }
+ib-SC3590-28GP-4SC-8XE          OBJECT IDENTIFIER ::= { lansw 53 }
+ib-SC3590-48GP-6XE              OBJECT IDENTIFIER ::= { lansw 54 }
 
 -- under .enterprises.ibnew.wireless
 ib-AP3620                       OBJECT IDENTIFIER ::= { wireless 1 }
@@ -78,5 +89,13 @@ ib-AP3620X                      OBJECT IDENTIFIER ::= { wireless 10 }
 ib-WC-3010                      OBJECT IDENTIFIER ::= { wireless 11 }
 ib-WC-3020                      OBJECT IDENTIFIER ::= { wireless 12 }
 ib-AP7739                       OBJECT IDENTIFIER ::= { wireless 13 }
+ib-WC-5010                      OBJECT IDENTIFIER ::= { wireless 14 }
+ib-WC-5020                      OBJECT IDENTIFIER ::= { wireless 15 }
+ib-RW6305W                      OBJECT IDENTIFIER ::= { wireless 16 }
+ib-RW6302X                      OBJECT IDENTIFIER ::= { wireless 17 }
+ib-RW6181                       OBJECT IDENTIFIER ::= { wireless 18 }
+ib-RW6302                       OBJECT IDENTIFIER ::= { wireless 19 }
+ib-RW6302MAX                    OBJECT IDENTIFIER ::= { wireless 20 }
+ib-WC-7060                      OBJECT IDENTIFIER ::= { wireless 21 }
 
 END

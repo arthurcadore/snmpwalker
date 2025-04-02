@@ -15,10 +15,10 @@ IB-OID-MIB DEFINITIONS ::= BEGIN
 
 -- Object under .enterprises
     intelbras OBJECT IDENTIFIER ::= { enterprises 26138 }
-	
+
 -- Object under .enterprises.intelbras
 	ibnew OBJECT IDENTIFIER ::= { intelbras 1 }
-	
+
 -- Object under .enterprises.intelbras.ibnew
 	lansw 	   OBJECT IDENTIFIER ::= { ibnew 2 }
 	wireless   OBJECT IDENTIFIER ::= { ibnew 4 }
